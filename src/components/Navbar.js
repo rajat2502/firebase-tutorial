@@ -4,13 +4,17 @@ import { Link } from "react-router-dom";
 import * as ROUTES from "./constants/routes";
 import SignOut from './SignOut';
 
-const Navbar = () => {
+const Navbar = ({ authUser }) => {
   return (
     <Fragment>
-      <ul className="navbar">
-        <li>
-          <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-        </li>
+      { authUser ? <NavbarAuth /> : <NavbarNonAuth /> }
+    </Fragment>
+  );
+};
+
+const NavbarAuth = () => {
+  return (
+    <ul className="navbar">
         <li>
           <Link to={ROUTES.LANDING}>Landing</Link>
         </li>
@@ -20,15 +24,27 @@ const Navbar = () => {
         <li>
           <Link to={ROUTES.ACCOUNT}>Account</Link>
         </li>
-        <li>
+        {/* <li>
           <Link to={ROUTES.ADMIN}>Admin</Link>
-        </li>
+        </li> */}
         <li>
           <SignOut />
         </li>
       </ul>
-    </Fragment>
-  );
-};
+  )
+}
+
+const NavbarNonAuth = () => {
+  return (
+    <ul className="navbar">
+        <li>
+          <Link to={ROUTES.SIGN_IN}>Sign In</Link>
+        </li>
+        <li>
+          <Link to={ROUTES.LANDING}>Landing</Link>
+        </li>
+      </ul>
+  )
+}
 
 export default Navbar;
