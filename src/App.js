@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import * as ROUTES from "./components/constants/routes";
@@ -11,7 +11,7 @@ import Account from "./components/Account";
 import Admin from "./components/Admin";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
-import PasswordForget from "./components/PasswordForget";
+import PasswordForget from './components/PasswordForget';
 
 const App = () => {
 

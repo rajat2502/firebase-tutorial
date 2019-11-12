@@ -3,15 +3,17 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
 
 import { SignUpLink } from './SignUp';
+import { PasswordForgetLink } from './PasswordForget';
 import { withFirebase } from './Firebase';
 import * as ROUTES from './constants/routes';
 
-const SignInPage = () => {
+const SignIn = () => {
   return (
     <Fragment>
       <h1>SignIn</h1>
-      <SignUpLink />
       <SignInForm />
+      <PasswordForgetLink />
+      <SignUpLink />
     </Fragment>
   );
 };
@@ -83,4 +85,4 @@ const SignInForm = compose(
 
 export { SignInForm };
 
-export default SignInPage;
+export default SignIn;
