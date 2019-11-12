@@ -1,14 +1,17 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
+import { AuthUserContext } from './Session/index';
 import * as ROUTES from "./constants/routes";
 import SignOut from './SignOut';
 
-const Navbar = ({ authUser }) => {
+const Navbar = () => {
   return (
-    <Fragment>
-      { authUser ? <NavbarAuth /> : <NavbarNonAuth /> }
-    </Fragment>
+    <AuthUserContext.Consumer>
+      {authUser =>
+        authUser ? <NavbarAuth /> : <NavbarNonAuth />
+      }
+    </AuthUserContext.Consumer>
   );
 };
 
