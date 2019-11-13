@@ -5,11 +5,11 @@ import PasswordChange from './PasswordChange';
 
 const Account = () => {
   return (
-    <Fragment>
-      <h1>Account</h1>
-      <PassowrdForgetForm />
-      <PasswordChange />
-    </Fragment>
+        <div>
+          <h1>Account: {JSON.parse(localStorage.getItem('authUser')).email}</h1>
+          <PassowrdForgetForm />
+          <PasswordChange />
+        </div>
   );
 };
 

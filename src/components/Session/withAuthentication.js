@@ -26,6 +26,7 @@ const withAuthentication = Component => {
           }
 
         render() {
+            localStorage.setItem('authUser', JSON.stringify(this.state.authUser));
             return (
                 <AuthUserContext.Provider value={this.state.authUser}>
                     <Component {...this.props} />
