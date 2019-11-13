@@ -1,18 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { AuthUserContext } from './Session/index';
+// import { AuthUserContext } from './Session/index';
 import * as ROUTES from "./constants/routes";
 import SignOut from './SignOut';
 
 const Navbar = () => {
-  return (
-    <AuthUserContext.Consumer>
-      {authUser =>
-        authUser ? <NavbarAuth /> : <NavbarNonAuth />
-      }
-    </AuthUserContext.Consumer>
-  );
+  const authUser = JSON.parse(localStorage.getItem('authUser'));
+  return authUser ? <NavbarAuth /> : <NavbarNonAuth />;
 };
 
 const NavbarAuth = () => {
@@ -27,9 +22,9 @@ const NavbarAuth = () => {
         <li>
           <Link to={ROUTES.ACCOUNT}>Account</Link>
         </li>
-        {/* <li>
+        <li>
           <Link to={ROUTES.ADMIN}>Admin</Link>
-        </li> */}
+        </li>
         <li>
           <SignOut />
         </li>
